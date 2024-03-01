@@ -30,8 +30,16 @@ const ManageProduct = (props: any) => {
                 fontFamily: "Manrope",
                 color: "var(--grey-3, #FFF)",
                 textTransform: "none"
-
-
+            },
+            "&:hover": {
+                borderRadius: "36px",
+                border: "1px solid var(--grey-2, #F2F2F2)",
+                background: "var(--gery, #121824)",
+                height: "40px",
+                padding: "9px 44px",
+                fontFamily: "Manrope",
+                color: "var(--grey-3, #FFF)",
+                textTransform: "none"
             }
         }} type='submit'>{isEdit ? `Update` : `Create`}</Button></Grid>
         <Grid item xs={12}>

@@ -6,15 +6,17 @@ import ManageProduct from '../../Components/ManageProduct/ManageProduct';
 import { useRef, useState } from 'react';
 import { useForm, SubmitHandler } from "react-hook-form"
 import { CreateProductAPI } from '../../Api/APIMethods';
+import { useNavigate } from 'react-router-dom';
 
 type Inputs = {
     productName: string
     productDescription: string
     groupId: number
   }
-  const createProduct = async(product:any)=>{
+  const createProduct = async(product:any,actionCompleteCallBack:Function)=>{
     try {
         const responseCreateProduct = await CreateProductAPI(product);
+
         console.log(responseCreateProduct);
     } catch (error) {
         console.log(error);
@@ -24,11 +26,15 @@ const AddProducts = () => {
 
     const [data,setData] = useState({});
     const formRef =  useRef(null);
+    const navigate = useNavigate();
+    const completeCreate = ()=>{
+        navigate('/products');
+    }
     const { handleSubmit, control,watch,setValue } = useForm<Inputs>()
       const onSubmit: SubmitHandler<Inputs> = async(formData) => {
         const dataFinal = {...data,...formData};
         console.log(dataFinal);
-        await createProduct(dataFinal)
+        await createProduct(dataFinal,completeCreate);
         setData(dataFinal)
       }
     const breadcrumbs = [

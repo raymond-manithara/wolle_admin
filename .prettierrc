@@ -1,0 +1,6 @@
+{
+  "singleQuote": true,
+  "semi": false,
+  "trailingComma": "es5"
+  // You can add other Prettier configurations as needed
+}

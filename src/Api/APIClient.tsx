@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from "axios";
+import axios from "axios";
 import { apiBaseUrl } from "../env.const";
 import { TOKEN } from "../app.const";
 

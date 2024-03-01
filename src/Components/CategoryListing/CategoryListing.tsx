@@ -1,4 +1,4 @@
-import { Box, Button, Grid, InputAdornment, TextField, IconButton, Switch, Dialog, DialogTitle, DialogProps, DialogActions, DialogContent, Typography, CircularProgress } from "@mui/material";
+import { Box, Button, Grid, InputAdornment, TextField, IconButton, Switch, Dialog, DialogTitle, DialogProps, DialogContent, Typography, CircularProgress } from "@mui/material";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { CreateCategory } from "../../Api/APIMethods";
@@ -123,18 +123,18 @@ const CategoryListing = (props: any) => {
             <table className='product_table'>
                 <thead>
                     <tr>
-                        <th>MATERIAL ID</th>
-                        <th style={{ textAlign: "left" }}>MATERIAL NAME</th>
-                        <th>MATERIAL STATUS</th>
-                        <th>MATERIAL CREATED</th>
+                        <th>CATEGORY ID</th>
+                        <th style={{ textAlign: "left" }}>CATEGORY NAME</th>
+                        <th>CATEGORY STATUS</th>
+                        <th>CATEGORY CREATED</th>
                     </tr>
                 </thead>
                 <tbody>
                     {categories?.map((product: any, i: number) => {
                         return <tr key={`row ${i.toString()}`} style={{ height: "60px" }}>
-                            <td>{product?.materialId}</td>
-                            <td style={{ textAlign: "left" }}>{product?.materialName}</td>
-                            <td><Switch checked={product?.materialEnabled} /></td>
+                            <td>{product?.categoryId}</td>
+                            <td style={{ textAlign: "left" }}>{product?.categoryName}</td>
+                            <td><Switch checked={product?.categoryEnabled} /></td>
                             <td>{new Date(product?.createdAt).toLocaleString()}</td>
                             <td>View</td>
                         </tr>
